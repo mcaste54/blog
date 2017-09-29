@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Powered by [Hugo](http://gohugo.io).</copyright>
-    <lastBuildDate>Sat, 10 Oct 2015 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 29 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Scatterplot building </title>
+      <link>/post/scatterplot-building/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/scatterplot-building/</guid>
+      <description>Scatterplots are a form of data vizualization. To start building one on Rstudio we have to download these three packages:
+library(Lahman)library(sqldf)## Loading required package: gsubfn## Loading required package: proto## Loading required package: RSQLitelibrary(ggplot2)So we want to find career strikeouts and career homeruns for all players who have hit 400 or more homeruns total. We are using the command AS to change the column title in the console.</description>
+    </item>
     
     <item>
       <title>Migrate from Jekyll</title>

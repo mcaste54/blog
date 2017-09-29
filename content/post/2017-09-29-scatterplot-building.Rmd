@@ -1,0 +1,45 @@
+---
+title: 'Scatterplot building '
+author: Maddie Castele
+date: '2017-09-29'
+slug: scatterplot-building
+categories:
+  - R
+  - Rstudio
+tags:
+  - scatterplot
+---
+
+Scatterplots are a form of data vizualization. To start building one on Rstudio we have to download these three packages:
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+
+```
+
+So we want to find career strikeouts and career homeruns for all players who have hit 400 or more homeruns total. We are using the command AS to change the column title in the console. This is how we would write this query:
+```{r}
+query<-"select playerID,sum(HR) as career_HR,sum(SO) as career_SO
+from Batting
+group by playerID
+having sum(HR)>=400"
+
+result<-sqldf(query)
+```
+
+Now that we have the data we want to use, let's turn it into a scatterplot. We can also change the size and color of the dots. It's important to keep putting plus signs at the end of each command line so Rstudio knows you're still working on the scatterplot.
+```{r}
+ggplot()+
+   geom_point(data=result,aes(x=career_SO,y=career_HR),size=3,color="blue")
+```
+
+To change the main title and the axis titles, we add these commands to our code, and we're done! :
+```{r}
+ggplot()+
+   geom_point(data=result,aes(x=career_SO,y=career_HR),size=3,color="blue")+
+   ggtitle("Career Strikeouts VS Homeruns for Great Hitters")+
+   xlab("Career Strikeouts")+
+   ylab("Career Homeruns")
+```
+

@@ -1,0 +1,39 @@
+---
+title: 'Scatterplot building '
+author: Maddie Castele
+date: '2017-09-29'
+slug: scatterplot-building
+categories:
+  - R
+  - Rstudio
+tags:
+  - scatterplot
+---
+
+
+
+<p>Scatterplots are a form of data vizualization. To start building one on Rstudio we have to download these three packages:</p>
+<pre class="r"><code>library(Lahman)
+library(sqldf)</code></pre>
+<pre><code>## Loading required package: gsubfn</code></pre>
+<pre><code>## Loading required package: proto</code></pre>
+<pre><code>## Loading required package: RSQLite</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<p>So we want to find career strikeouts and career homeruns for all players who have hit 400 or more homeruns total. We are using the command AS to change the column title in the console. This is how we would write this query:</p>
+<pre class="r"><code>query&lt;-&quot;select playerID,sum(HR) as career_HR,sum(SO) as career_SO
+from Batting
+group by playerID
+having sum(HR)&gt;=400&quot;
+
+result&lt;-sqldf(query)</code></pre>
+<p>Now that we have the data we want to use, let’s turn it into a scatterplot. We can also change the size and color of the dots. It’s important to keep putting plus signs at the end of each command line so Rstudio knows you’re still working on the scatterplot.</p>
+<pre class="r"><code>ggplot()+
+   geom_point(data=result,aes(x=career_SO,y=career_HR),size=3,color=&quot;blue&quot;)</code></pre>
+<p><img src="/post/2017-09-29-scatterplot-building_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>To change the main title and the axis titles, we add these commands to our code, and we’re done! :</p>
+<pre class="r"><code>ggplot()+
+   geom_point(data=result,aes(x=career_SO,y=career_HR),size=3,color=&quot;blue&quot;)+
+   ggtitle(&quot;Career Strikeouts VS Homeruns for Great Hitters&quot;)+
+   xlab(&quot;Career Strikeouts&quot;)+
+   ylab(&quot;Career Homeruns&quot;)</code></pre>
+<p><img src="/post/2017-09-29-scatterplot-building_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
