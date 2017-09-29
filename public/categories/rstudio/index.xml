@@ -18,7 +18,8 @@
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/histograms/</guid>
-      <description></description>
+      <description>library(Lahman)library(sqldf)## Loading required package: gsubfn## Loading required package: proto## Loading required package: RSQLitelibrary(ggplot2)It’s time to build a histogram on Rstudio! After we download the Lahman, sqldf, and ggplt2 packages, we are going to select a certain column from the Master list to display. Let’s do body weight for all the players.
+query&amp;lt;-&amp;quot;select weight from Master&amp;quot;result&amp;lt;-sqldf(query)Now we just translate this data into a histogram using this code.</description>
     </item>
     
     <item>

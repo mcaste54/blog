@@ -10,3 +10,24 @@ tags:
   - histograms
 ---
 
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+It's time to build a histogram on Rstudio! After we download the Lahman, sqldf, and ggplt2 packages, we are going to select a certain column from the Master list to display. Let's do body weight for all the players.
+```{r}
+query<-"select weight from Master"
+
+result<-sqldf(query)
+```
+
+Now we just translate this data into a histogram using this code. "Fill" means the color of the bars and "bins" means the number of bars. And we're  done with the histogram!
+```{r}
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color="blue",fill="white",bins=50)+
+  ggtitle("Body-Weight Distribution for Baseball Players")
+```
+
+

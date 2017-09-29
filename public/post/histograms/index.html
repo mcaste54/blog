@@ -58,7 +58,23 @@
 </span>
 </footer>
 
-            
+            <pre class="r"><code>library(Lahman)
+library(sqldf)</code></pre>
+<pre><code>## Loading required package: gsubfn</code></pre>
+<pre><code>## Loading required package: proto</code></pre>
+<pre><code>## Loading required package: RSQLite</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<p>It’s time to build a histogram on Rstudio! After we download the Lahman, sqldf, and ggplt2 packages, we are going to select a certain column from the Master list to display. Let’s do body weight for all the players.</p>
+<pre class="r"><code>query&lt;-&quot;select weight from Master&quot;
+
+result&lt;-sqldf(query)</code></pre>
+<p>Now we just translate this data into a histogram using this code. “Fill” means the color of the bars and “bins” means the number of bars. And we’re done with the histogram!</p>
+<pre class="r"><code>ggplot()+
+  geom_histogram(data=result,aes(x=weight),color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
+  ggtitle(&quot;Body-Weight Distribution for Baseball Players&quot;)</code></pre>
+<pre><code>## Warning: Removed 854 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="/post/2017-09-29-histograms_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+
             
 
         </article>
