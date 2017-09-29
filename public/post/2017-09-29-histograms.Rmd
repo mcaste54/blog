@@ -1,0 +1,12 @@
+---
+title: Histograms
+author: Maddie Castele
+date: '2017-09-29'
+slug: histograms
+categories:
+  - R
+  - Rstudio
+tags:
+  - histograms
+---
+
