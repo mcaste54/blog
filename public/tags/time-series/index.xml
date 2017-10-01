@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scatterplot on Maddie&#39;s Blog</title>
-    <link>/tags/scatterplot/</link>
-    <description>Recent content in Scatterplot on Maddie&#39;s Blog</description>
+    <title>Time Series on Maddie&#39;s Blog</title>
+    <link>/tags/time-series/</link>
+    <description>Recent content in Time Series on Maddie&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Powered by [Hugo](http://gohugo.io).</copyright>
     <lastBuildDate>Sat, 30 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/scatterplot/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/time-series/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,16 +20,6 @@
       <guid>/post/time-series/</guid>
       <description>library(Lahman)library(sqldf)## Loading required package: gsubfn## Loading required package: proto## Loading required package: RSQLitelibrary(ggplot2)This next data vizualization is a time series. For this we are extracting data about Babe Ruth’s Homerun totals throughout his career.
 query&amp;lt;-&amp;quot;select yearID,HR from Battingwhere playerID=&amp;#39;ruthba01&amp;#39;&amp;quot;result&amp;lt;-sqldf(query)For this graph we are actually putting two graphs on top of each other: a line graph and a scatterplot. It makes it easier to make sense of the representation of this data.</description>
-    </item>
-    
-    <item>
-      <title>Scatterplot building </title>
-      <link>/post/scatterplot-building/</link>
-      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/scatterplot-building/</guid>
-      <description>Scatterplots are a form of data vizualization. To start building one on Rstudio we have to download these three packages:
-library(Lahman)library(sqldf)## Loading required package: gsubfn## Loading required package: proto## Loading required package: RSQLitelibrary(ggplot2)So we want to find career strikeouts and career homeruns for all players who have hit 400 or more homeruns total. We are using the command AS to change the column title in the console.</description>
     </item>
     
   </channel>

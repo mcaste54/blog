@@ -1,0 +1,38 @@
+---
+title: Time Series
+author: Maddie Castele
+date: '2017-09-30'
+slug: time-series
+categories:
+  - R
+  - Rstudio
+tags:
+  - time series
+  - scatterplot
+  - line graph
+---
+
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+This next data vizualization is a time series. For this we are extracting data about Babe Ruth's Homerun totals throughout his career.
+```{r}
+query<-"select yearID,HR from Batting
+where playerID='ruthba01'"
+
+result<-sqldf(query)
+```
+
+For this graph we are actually putting two graphs on top of each other: a line graph and a scatterplot. It makes it easier to make sense of the representation of this data.
+```{r}
+ggplot()+
+  geom_point(data=result,aes(x=yearID,y=HR))+
+  geom_line(data=result,aes(x=yearID,y=HR))+
+  ggtitle("Ruth's Homerun Totals Throughout the Years")+
+  xlab("year")+
+  ylab("homeruns")
+```
+

@@ -40,6 +40,15 @@
     </item>
     
     <item>
+      <title>Line Graph</title>
+      <link>/tags/line-graph/</link>
+      <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/line-graph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Migration</title>
       <link>/tags/migration/</link>
       <pubDate>Sat, 10 Oct 2015 13:07:31 +0200</pubDate>
@@ -78,9 +87,18 @@
     <item>
       <title>Scatterplot</title>
       <link>/tags/scatterplot/</link>
-      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/scatterplot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Time Series</title>
+      <link>/tags/time-series/</link>
+      <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/time-series/</guid>
       <description></description>
     </item>
     
