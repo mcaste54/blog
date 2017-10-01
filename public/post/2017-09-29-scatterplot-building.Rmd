@@ -11,7 +11,7 @@ tags:
 ---
 
 Scatterplots are a form of data vizualization. To start building one on Rstudio we have to download these three packages:
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(Lahman)
 library(sqldf)
 library(ggplot2)

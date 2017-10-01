@@ -14,11 +14,8 @@ tags:
 
 <p>Scatterplots are a form of data vizualization. To start building one on Rstudio we have to download these three packages:</p>
 <pre class="r"><code>library(Lahman)
-library(sqldf)</code></pre>
-<pre><code>## Loading required package: gsubfn</code></pre>
-<pre><code>## Loading required package: proto</code></pre>
-<pre><code>## Loading required package: RSQLite</code></pre>
-<pre class="r"><code>library(ggplot2)</code></pre>
+library(sqldf)
+library(ggplot2)</code></pre>
 <p>So we want to find career strikeouts and career homeruns for all players who have hit 400 or more homeruns total. We are using the command AS to change the column title in the console. This is how we would write this query:</p>
 <pre class="r"><code>query&lt;-&quot;select playerID,sum(HR) as career_HR,sum(SO) as career_SO
 from Batting

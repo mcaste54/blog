@@ -18,8 +18,9 @@
       <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/time-series/</guid>
-      <description>library(Lahman)library(sqldf)## Loading required package: gsubfn## Loading required package: proto## Loading required package: RSQLitelibrary(ggplot2)This next data vizualization is a time series. For this we are extracting data about Babe Ruth’s Homerun totals throughout his career.
-query&amp;lt;-&amp;quot;select yearID,HR from Battingwhere playerID=&amp;#39;ruthba01&amp;#39;&amp;quot;result&amp;lt;-sqldf(query)For this graph we are actually putting two graphs on top of each other: a line graph and a scatterplot. It makes it easier to make sense of the representation of this data.</description>
+      <description>library(Lahman)library(sqldf)library(ggplot2)This next data vizualization is a time series. For this we are extracting data about Babe Ruth’s Homerun totals throughout his career.
+query&amp;lt;-&amp;quot;select yearID,HR from Battingwhere playerID=&amp;#39;ruthba01&amp;#39;&amp;quot;result&amp;lt;-sqldf(query)For this graph we are actually putting two graphs on top of each other: a line graph and a scatterplot. It makes it easier to make sense of the representation of this data.
+ggplot()+geom_point(data=result,aes(x=yearID,y=HR))+geom_line(data=result,aes(x=yearID,y=HR))+ggtitle(&amp;quot;Ruth&amp;#39;s Homerun Totals Throughout the Years&amp;quot;)+xlab(&amp;quot;year&amp;quot;)+ylab(&amp;quot;homeruns&amp;quot;)</description>
     </item>
     
     <item>
@@ -28,8 +29,8 @@ query&amp;lt;-&amp;quot;select yearID,HR from Battingwhere playerID=&amp;#39;ru
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/histograms/</guid>
-      <description>library(Lahman)library(sqldf)## Loading required package: gsubfn## Loading required package: proto## Loading required package: RSQLitelibrary(ggplot2)It’s time to build a histogram on Rstudio! After we download the Lahman, sqldf, and ggplt2 packages, we are going to select a certain column from the Master list to display. Let’s do body weight for all the players.
-query&amp;lt;-&amp;quot;select weight from Master&amp;quot;result&amp;lt;-sqldf(query)Now we just translate this data into a histogram using this code.</description>
+      <description>library(Lahman)library(sqldf)library(ggplot2)It’s time to build a histogram on Rstudio! After we download the Lahman, sqldf, and ggplt2 packages, we are going to select a certain column from the Master list to display. Let’s do body weight for all the players.
+query&amp;lt;-&amp;quot;select weight from Master&amp;quot;result&amp;lt;-sqldf(query)Now we just translate this data into a histogram using this code. “Fill” means the color of the bars and “bins” means the number of bars.</description>
     </item>
     
     <item>
@@ -39,7 +40,8 @@ query&amp;lt;-&amp;quot;select weight from Master&amp;quot;result&amp;lt;-sqldf
       
       <guid>/post/scatterplot-building/</guid>
       <description>Scatterplots are a form of data vizualization. To start building one on Rstudio we have to download these three packages:
-library(Lahman)library(sqldf)## Loading required package: gsubfn## Loading required package: proto## Loading required package: RSQLitelibrary(ggplot2)So we want to find career strikeouts and career homeruns for all players who have hit 400 or more homeruns total. We are using the command AS to change the column title in the console.</description>
+library(Lahman)library(sqldf)library(ggplot2)So we want to find career strikeouts and career homeruns for all players who have hit 400 or more homeruns total. We are using the command AS to change the column title in the console. This is how we would write this query:
+query&amp;lt;-&amp;quot;select playerID,sum(HR) as career_HR,sum(SO) as career_SOfrom Battinggroup by playerIDhaving sum(HR)&amp;gt;=400&amp;quot;result&amp;lt;-sqldf(query)Now that we have the data we want to use, let’s turn it into a scatterplot.</description>
     </item>
     
     <item>

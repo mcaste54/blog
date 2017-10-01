@@ -63,22 +63,20 @@
 </span>
 </footer>
 
-    <p><p>library(Lahman)
-library(sqldf)</p>
-
-<h2 id="loading-required-package-gsubfn">Loading required package: gsubfn</h2>
-
-<h2 id="loading-required-package-proto">Loading required package: proto</h2>
-
-<h2 id="loading-required-package-rsqlite">Loading required package: RSQLite</h2>
-
-<p>library(ggplot2)
+    <p>library(Lahman)
+library(sqldf)
+library(ggplot2)
 This next data vizualization is a time series. For this we are extracting data about Babe Ruth’s Homerun totals throughout his career.
 query&lt;-&quot;select yearID,HR from Batting
 where playerID=&#39;ruthba01&#39;&quot;
 result&lt;-sqldf(query)
-For this graph we are actually putting two graphs on top of each other: a line graph and a scatterplot. It makes it easier to make sense of the representation of this data.</p>
-&hellip;</p>
+For this graph we are actually putting two graphs on top of each other: a line graph and a scatterplot. It makes it easier to make sense of the representation of this data.
+ggplot()+
+geom_point(data=result,aes(x=yearID,y=HR))+
+geom_line(data=result,aes(x=yearID,y=HR))+
+ggtitle(&quot;Ruth&#39;s Homerun Totals Throughout the Years&quot;)+
+xlab(&quot;year&quot;)+
+ylab(&quot;homeruns&quot;)&hellip;</p>
     <a href="/post/time-series/" title="Time Series">Read more &raquo;</a>
 </article>
 

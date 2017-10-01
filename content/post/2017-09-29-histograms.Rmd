@@ -10,7 +10,7 @@ tags:
   - histograms
 ---
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(Lahman)
 library(sqldf)
 library(ggplot2)

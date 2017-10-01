@@ -63,22 +63,20 @@
 </span>
 </footer>
 
-    <p><p>library(Lahman)
-library(sqldf)</p>
-
-<h2 id="loading-required-package-gsubfn">Loading required package: gsubfn</h2>
-
-<h2 id="loading-required-package-proto">Loading required package: proto</h2>
-
-<h2 id="loading-required-package-rsqlite">Loading required package: RSQLite</h2>
-
-<p>library(ggplot2)
+    <p>library(Lahman)
+library(sqldf)
+library(ggplot2)
 This next data vizualization is a time series. For this we are extracting data about Babe Ruth’s Homerun totals throughout his career.
 query&lt;-&quot;select yearID,HR from Batting
 where playerID=&#39;ruthba01&#39;&quot;
 result&lt;-sqldf(query)
-For this graph we are actually putting two graphs on top of each other: a line graph and a scatterplot. It makes it easier to make sense of the representation of this data.</p>
-&hellip;</p>
+For this graph we are actually putting two graphs on top of each other: a line graph and a scatterplot. It makes it easier to make sense of the representation of this data.
+ggplot()+
+geom_point(data=result,aes(x=yearID,y=HR))+
+geom_line(data=result,aes(x=yearID,y=HR))+
+ggtitle(&quot;Ruth&#39;s Homerun Totals Throughout the Years&quot;)+
+xlab(&quot;year&quot;)+
+ylab(&quot;homeruns&quot;)&hellip;</p>
     <a href="/post/time-series/" title="Time Series">Read more &raquo;</a>
 </article>
 
@@ -98,21 +96,13 @@ For this graph we are actually putting two graphs on top of each other: a line g
 </span>
 </footer>
 
-    <p><p>library(Lahman)
-library(sqldf)</p>
-
-<h2 id="loading-required-package-gsubfn">Loading required package: gsubfn</h2>
-
-<h2 id="loading-required-package-proto">Loading required package: proto</h2>
-
-<h2 id="loading-required-package-rsqlite">Loading required package: RSQLite</h2>
-
-<p>library(ggplot2)
+    <p>library(Lahman)
+library(sqldf)
+library(ggplot2)
 It’s time to build a histogram on Rstudio! After we download the Lahman, sqldf, and ggplt2 packages, we are going to select a certain column from the Master list to display. Let’s do body weight for all the players.
 query&lt;-&quot;select weight from Master&quot;
 result&lt;-sqldf(query)
-Now we just translate this data into a histogram using this code.</p>
-&hellip;</p>
+Now we just translate this data into a histogram using this code. “Fill” means the color of the bars and “bins” means the number of bars.&hellip;</p>
     <a href="/post/histograms/" title="Histograms">Read more &raquo;</a>
 </article>
 
@@ -132,19 +122,17 @@ Now we just translate this data into a histogram using this code.</p>
 </span>
 </footer>
 
-    <p><p>Scatterplots are a form of data vizualization. To start building one on Rstudio we have to download these three packages:
+    <p>Scatterplots are a form of data vizualization. To start building one on Rstudio we have to download these three packages:
 library(Lahman)
-library(sqldf)</p>
-
-<h2 id="loading-required-package-gsubfn">Loading required package: gsubfn</h2>
-
-<h2 id="loading-required-package-proto">Loading required package: proto</h2>
-
-<h2 id="loading-required-package-rsqlite">Loading required package: RSQLite</h2>
-
-<p>library(ggplot2)
-So we want to find career strikeouts and career homeruns for all players who have hit 400 or more homeruns total. We are using the command AS to change the column title in the console.</p>
-&hellip;</p>
+library(sqldf)
+library(ggplot2)
+So we want to find career strikeouts and career homeruns for all players who have hit 400 or more homeruns total. We are using the command AS to change the column title in the console. This is how we would write this query:
+query&lt;-&quot;select playerID,sum(HR) as career_HR,sum(SO) as career_SO
+from Batting
+group by playerID
+having sum(HR)&gt;=400&quot;
+result&lt;-sqldf(query)
+Now that we have the data we want to use, let’s turn it into a scatterplot.&hellip;</p>
     <a href="/post/scatterplot-building/" title="Scatterplot building ">Read more &raquo;</a>
 </article>
 

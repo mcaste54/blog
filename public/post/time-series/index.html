@@ -63,11 +63,8 @@
 </footer>
 
             <pre class="r"><code>library(Lahman)
-library(sqldf)</code></pre>
-<pre><code>## Loading required package: gsubfn</code></pre>
-<pre><code>## Loading required package: proto</code></pre>
-<pre><code>## Loading required package: RSQLite</code></pre>
-<pre class="r"><code>library(ggplot2)</code></pre>
+library(sqldf)
+library(ggplot2)</code></pre>
 <p>This next data vizualization is a time series. For this we are extracting data about Babe Ruth’s Homerun totals throughout his career.</p>
 <pre class="r"><code>query&lt;-&quot;select yearID,HR from Batting
 where playerID=&#39;ruthba01&#39;&quot;

@@ -13,11 +13,8 @@ tags:
 
 
 <pre class="r"><code>library(Lahman)
-library(sqldf)</code></pre>
-<pre><code>## Loading required package: gsubfn</code></pre>
-<pre><code>## Loading required package: proto</code></pre>
-<pre><code>## Loading required package: RSQLite</code></pre>
-<pre class="r"><code>library(ggplot2)</code></pre>
+library(sqldf)
+library(ggplot2)</code></pre>
 <p>It’s time to build a histogram on Rstudio! After we download the Lahman, sqldf, and ggplt2 packages, we are going to select a certain column from the Master list to display. Let’s do body weight for all the players.</p>
 <pre class="r"><code>query&lt;-&quot;select weight from Master&quot;
 
