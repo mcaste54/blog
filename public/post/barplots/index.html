@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tags &middot; Maddie&#39;s Blog</title>
+        <title>Maddie&#39;s Blog</title>
         <meta name="author">
         <meta name="description" content="Quick R Tutorials">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,57 +39,73 @@
           </div>
         </header>
 
+
 <div class="container clearfix">
     <main role="main" class="content">
-    <a class="btn home" href="/" title="Back to home">&laquo; Back to home</a>
-    <h2>Tags:</a>
-    <ul>
-     
-        <li>
-            <a href="hugo">hugo (2)</a>
-        </li>
+        <article class="post">
+            <a class="btn home" href="/" title="Back to home">&laquo; Back to home</a>
+            
+<h1><a href="/post/barplots/" title="Barplots">Barplots</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.03">2017.10.03</time>
+
+    &middot; Tagged in
+        
+        <a href="/tags/barplot">barplot</a>
+        
     
-        <li>
-            <a href="scatterplot">scatterplot (2)</a>
-        </li>
+
+</span>
+</footer>
+
+            <p>Let’s create a bar plot as our final example.</p>
+<pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
+<p>Barplots are more complicated to create than histograms, time series, and scatterplots.First let’s extract the data. In order to make name a factor and team name a level of that factor, we have to write the following query:</p>
+<pre class="r"><code>query&lt;-&quot;select name,HR from Teams
+where yearID=1980
+order by HR&quot;
+
+result&lt;-sqldf(query)
+result$name&lt;-factor(result$name,levels=result$name)</code></pre>
+<p>Now to make the actual barplot.We use “coord_flip” to switch the y and x axis.</p>
+<pre class="r"><code>ggplot()+
+  geom_bar(data=result,aes(x=name,y=HR),stat=&#39;identity&#39;,color=&#39;blue&#39;,fill=&#39;white&#39;)+
+  coord_flip()+
+  ylab(&quot;homeruns&quot;)+
+  xlab(&quot;team&quot;)+
+  ggtitle(&quot;1980 Team Homerun Distribution&quot;)</code></pre>
+<p><img src="/post/2017-10-03-barplots_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+
+            
+
+        </article>
+        
+        <div class="comments">
+            <h3>Comments</h3>
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
     
-        <li>
-            <a href="barplot">barplot (1)</a>
-        </li>
     
-        <li>
-            <a href="histograms">histograms (1)</a>
-        </li>
     
-        <li>
-            <a href="jekyll">jekyll (1)</a>
-        </li>
-    
-        <li>
-            <a href="line-graph">line-graph (1)</a>
-        </li>
-    
-        <li>
-            <a href="migration">migration (1)</a>
-        </li>
-    
-        <li>
-            <a href="plot">plot (1)</a>
-        </li>
-    
-        <li>
-            <a href="r-markdown">r-markdown (1)</a>
-        </li>
-    
-        <li>
-            <a href="regression">regression (1)</a>
-        </li>
-    
-        <li>
-            <a href="time-series">time-series (1)</a>
-        </li>
-    
-    </ul>
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "spf13" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        
     </main>
     <aside class="author">
   <img class="profile-image" src="/img/image1edited.jpg" alt="Maddie Castele" />
@@ -123,6 +139,7 @@
 </aside>
 
 </div>
+
 <footer class="main-footer">
   <div class="container clearfix">
         

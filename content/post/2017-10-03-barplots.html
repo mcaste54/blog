@@ -1,0 +1,33 @@
+---
+title: Barplots
+author: Maddie Castele
+date: '2017-10-03'
+slug: barplots
+categories:
+  - R
+  - Rstudio
+tags:
+  - barplot
+---
+
+
+
+<p>Let’s create a bar plot as our final example.</p>
+<pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
+<p>Barplots are more complicated to create than histograms, time series, and scatterplots.First let’s extract the data. In order to make name a factor and team name a level of that factor, we have to write the following query:</p>
+<pre class="r"><code>query&lt;-&quot;select name,HR from Teams
+where yearID=1980
+order by HR&quot;
+
+result&lt;-sqldf(query)
+result$name&lt;-factor(result$name,levels=result$name)</code></pre>
+<p>Now to make the actual barplot.We use “coord_flip” to switch the y and x axis.</p>
+<pre class="r"><code>ggplot()+
+  geom_bar(data=result,aes(x=name,y=HR),stat=&#39;identity&#39;,color=&#39;blue&#39;,fill=&#39;white&#39;)+
+  coord_flip()+
+  ylab(&quot;homeruns&quot;)+
+  xlab(&quot;team&quot;)+
+  ggtitle(&quot;1980 Team Homerun Distribution&quot;)</code></pre>
+<p><img src="/post/2017-10-03-barplots_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>

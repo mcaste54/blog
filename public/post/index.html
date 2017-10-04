@@ -46,6 +46,36 @@
         
             <article class="post">
     
+<h1><a href="/post/barplots/" title="Barplots">Barplots</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.03">2017.10.03</time>
+
+    &middot; Tagged in
+        
+        <a href="/tags/barplot">barplot</a>
+        
+    
+
+</span>
+</footer>
+
+    <p>Let’s create a bar plot as our final example.
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+Barplots are more complicated to create than histograms, time series, and scatterplots.First let’s extract the data. In order to make name a factor and team name a level of that factor, we have to write the following query:
+query&lt;-&quot;select name,HR from Teams
+where yearID=1980
+order by HR&quot;
+result&lt;-sqldf(query)
+result$name&lt;-factor(result$name,levels=result$name)
+Now to make the actual barplot.We use “coord_flip” to switch the y and x axis.&hellip;</p>
+    <a href="/post/barplots/" title="Barplots">Read more &raquo;</a>
+</article>
+
+        
+            <article class="post">
+    
 <h1><a href="/post/time-series/" title="Time Series">Time Series</a></h1>
 
 <footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.09.30">2017.09.30</time>

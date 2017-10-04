@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tags &middot; Maddie&#39;s Blog</title>
+        <title>Barplot &middot; Maddie&#39;s Blog</title>
         <meta name="author">
         <meta name="description" content="Quick R Tutorials">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,56 +41,50 @@
 
 <div class="container clearfix">
     <main role="main" class="content">
-    <a class="btn home" href="/" title="Back to home">&laquo; Back to home</a>
-    <h2>Tags:</a>
-    <ul>
-     
-        <li>
-            <a href="hugo">hugo (2)</a>
-        </li>
+        <a class="btn home" href="/" title="Back to home">&laquo; Back to home</a>
+        
+        
+            <article class="post">
     
-        <li>
-            <a href="scatterplot">scatterplot (2)</a>
-        </li>
+<h1><a href="/post/barplots/" title="Barplots">Barplots</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.03">2017.10.03</time>
+
+    &middot; Tagged in
+        
+        <a href="/tags/barplot">barplot</a>
+        
     
-        <li>
-            <a href="barplot">barplot (1)</a>
-        </li>
-    
-        <li>
-            <a href="histograms">histograms (1)</a>
-        </li>
-    
-        <li>
-            <a href="jekyll">jekyll (1)</a>
-        </li>
-    
-        <li>
-            <a href="line-graph">line-graph (1)</a>
-        </li>
-    
-        <li>
-            <a href="migration">migration (1)</a>
-        </li>
-    
-        <li>
-            <a href="plot">plot (1)</a>
-        </li>
-    
-        <li>
-            <a href="r-markdown">r-markdown (1)</a>
-        </li>
-    
-        <li>
-            <a href="regression">regression (1)</a>
-        </li>
-    
-        <li>
-            <a href="time-series">time-series (1)</a>
-        </li>
-    
-    </ul>
+
+</span>
+</footer>
+
+    <p>Let’s create a bar plot as our final example.
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+Barplots are more complicated to create than histograms, time series, and scatterplots.First let’s extract the data. In order to make name a factor and team name a level of that factor, we have to write the following query:
+query&lt;-&quot;select name,HR from Teams
+where yearID=1980
+order by HR&quot;
+result&lt;-sqldf(query)
+result$name&lt;-factor(result$name,levels=result$name)
+Now to make the actual barplot.We use “coord_flip” to switch the y and x axis.&hellip;</p>
+    <a href="/post/barplots/" title="Barplots">Read more &raquo;</a>
+</article>
+
+        
+        <div class="pagination">
+<nav>
+
+	<p class="counter">Page 1 of 1</p>
+
+
+</nav>
+</div>
+
     </main>
+
     <aside class="author">
   <img class="profile-image" src="/img/image1edited.jpg" alt="Maddie Castele" />
   <p class="name">by 

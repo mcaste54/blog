@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Powered by [Hugo](http://gohugo.io).</copyright>
-    <lastBuildDate>Sat, 30 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Barplots</title>
+      <link>/post/barplots/</link>
+      <pubDate>Tue, 03 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/barplots/</guid>
+      <description>Let’s create a bar plot as our final example.
+library(Lahman)library(sqldf)library(ggplot2)Barplots are more complicated to create than histograms, time series, and scatterplots.First let’s extract the data. In order to make name a factor and team name a level of that factor, we have to write the following query:
+query&amp;lt;-&amp;quot;select name,HR from Teamswhere yearID=1980order by HR&amp;quot;result&amp;lt;-sqldf(query)result$name&amp;lt;-factor(result$name,levels=result$name)Now to make the actual barplot.We use “coord_flip” to switch the y and x axis.</description>
+    </item>
     
     <item>
       <title>Time Series</title>
